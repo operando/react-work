@@ -1,0 +1,32 @@
+
+
+
+* コンポーネントはReact.createClassによって生成
+* 与えられたプロパティは、this.propsから取得
+* DOMにアクセスするためのAPIも用意されています。ここではref属性（Reactが提供する便利な仕組みの1つです）を使って、入力値をDOMから受け取っています。
+
+
+## getInitialState
+
+コンポーネントの初期化に使われるメソッド
+
+このメソッドで最初の状態を定義し、その後の状態はthis.stateを通じて取得
+
+this.setStateを通じて更新することができます
+
+さらに、setStateを引き金に最終的にrenderメソッドが呼ばれ、状態の変更が画面に反映される仕組みになっています。
+
+this.stateを介してDOMの状態を宣言的に記述することができる
+
+## componentDidMount
+
+componentDidMountはコンポーネントのライフサイクルに応じて呼ばれるメソッドの1つで、その他にも以下のようなものがあります。
+
+メソッド	定義と用途
+componentWillMount()	コンポーネントがDOMに追加されるときに呼ばれる
+componentDidMount()	コンポーネントがDOMから削除された後に呼ばれる
+componentWillReceiveProps(nextProps)	コンポーネントが新しいpropsを受け取るときに呼ばれる。古い値はthis.propsで取得できる
+shouldComponentUpdate(nextProps, nextState)	このメソッドがfalseを返すとrenderメソッドは呼ばれない。パフォーマンス上の問題が生じた場合、このメソッドをオーバーライドすることによってチューニングできる。デフォルトでは常にtrueを返す
+componentWillUpdate(nextProps, nextState)	コンポーネントの更新前に呼ばれる。このメソッドからthis.setState()を呼ぶことはできない
+componentDidUpdate(prevProps, prevState)	コンポーネントの更新後に呼ばれる
+componentWillUnmount()	コンポーネントがDOMから削除されるときに呼ばれる
